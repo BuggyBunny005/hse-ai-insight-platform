@@ -1,6 +1,39 @@
 # HSE-AI Insight Platform
 
+![CI](https://github.com/fredericoahb/hse-ai-insight-platform/actions/workflows/ci.yml/badge.svg)
+![NestJS](https://img.shields.io/badge/NestJS-E0234E?style=for-the-badge&logo=nestjs&logoColor=white)
+![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
+![RabbitMQ](https://img.shields.io/badge/RabbitMQ-FF6600?style=for-the-badge&logo=rabbitmq&logoColor=white)
+![OpenSearch](https://img.shields.io/badge/OpenSearch-005EB8?style=for-the-badge&logo=opensearch&logoColor=white)
+![Ollama](https://img.shields.io/badge/Ollama-111111?style=for-the-badge&logo=ollama&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)
+
 HSE-AI Insight Platform is a full-stack Oil & Gas safety analytics application that converts free-text HSE incident reports into structured data and actionable insights. The platform uses a local open-source LLM served by Ollama to extract entities, classify events, infer severity, and feed a dark-themed operational dashboard for proactive risk management.
+
+## Technologies
+
+### Core stack
+- **Frontend:** Next.js, React, TypeScript, CSS Modules, Recharts
+- **Backend API:** NestJS, Node.js, TypeScript
+- **Worker:** Node.js, TypeScript
+- **Data layer:** PostgreSQL
+- **Messaging:** RabbitMQ
+- **Search and analytics:** OpenSearch
+- **AI runtime:** Ollama with `qwen2:7b`
+- **Containers and local orchestration:** Docker, Docker Compose
+- **CI:** GitHub Actions
+
+## Continuous Integration
+
+This repository includes a GitHub Actions workflow at `.github/workflows/ci.yml`.
+
+The pipeline currently:
+- installs dependencies for `backend`, `worker`, and `frontend`
+- runs the build step for each app
+- validates the `docker-compose.yml` file syntax
 
 ## Product walkthrough
 
@@ -62,10 +95,15 @@ NestJS API ---> RabbitMQ ---> Worker ---> Ollama (Qwen2)
 
 ```text
 hse-ai-insight-platform/
+├── .github/
+│   └── workflows/
+│       └── ci.yml
 ├── apps/
 │   ├── backend/
 │   ├── frontend/
 │   └── worker/
+├── docs/
+│   └── demo/
 ├── infrastructure/
 │   └── postgres/
 ├── docker-compose.yml

@@ -141,9 +141,6 @@ export default function HomePage() {
               onChange={(e) => setReportText(e.target.value)}
               placeholder="Paste a free-text HSE incident report..."
             />
-            <p className={styles.fieldHint}>
-              Write in plain language. The AI will extract entities, classify the event, and estimate severity.
-            </p>
             <button
               className={styles.primaryButton}
               onClick={submitReport}
@@ -240,9 +237,7 @@ export default function HomePage() {
                   {recent.map((item) => (
                     <tr key={item.id}>
                       <td>{new Date(item.createdAt).toLocaleDateString()}</td>
-                      <td className={styles.incidentCell}>
-                        <div className={styles.incidentExcerpt} title={item.reportText}>{item.reportText}</div>
-                      </td>
+                      <td>{item.reportText.slice(0, 95)}{item.reportText.length > 95 ? '…' : ''}</td>
                       <td>{item.classification ?? 'Pending'}</td>
                       <td>{item.severity ?? 'Pending'}</td>
                       <td>{item.status}</td>
